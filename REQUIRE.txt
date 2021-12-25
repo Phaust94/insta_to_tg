@@ -1,2 +1,2 @@
 python-telegram-bot
-instagrapi >= 1.16.4
+instagrapi >= 1.16.3
