@@ -99,7 +99,6 @@ class StoryArchive:
 
     @staticmethod
     def filename(user_id: int, story: Story) -> str:
-        # ext = "mp4" if story.video_duration > 0 else "jpg"
         res = f"{user_id}_{story.pk}"
         return res
 
@@ -120,7 +119,8 @@ class StoryArchive:
                 new_message = Message(new_path)
                 new_stuff.append(new_message)
 
-            msg = MultiMessage(user_name, new_stuff)
-            messages.append(msg)
+            if new_stuff:
+                msg = MultiMessage(user_name, new_stuff)
+                messages.append(msg)
 
         return messages
