@@ -9,7 +9,7 @@ from instagrapi.types import Story
 from telegram.ext import Updater
 from telegram import Bot
 
-from secrets import API_KEY, TG_TARGET
+from secrets import API_KEY, TG_TARGET, DUMP_CHANNEL_ID
 
 
 __all__ = [
@@ -48,6 +48,14 @@ class Message(Botable):
                 getattr(bot, meth)(TG_TARGET, item)
         except Exception:
             pass
+
+        # noinspection PyBroadException
+        try:
+            with open(self.content_path, "rb") as item:
+                bot.send_document(DUMP_CHANNEL_ID, item)
+        except Exception:
+            pass
+        return None
 
 
 @dataclass
