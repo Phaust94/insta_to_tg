@@ -6,6 +6,8 @@ from secrets import ACCOUNT_USERNAME, ACCOUNT_PASSWORD, TARGETS
 
 STORAGE = os.path.join(__file__, "..", "stories")
 
+BOT_SLEEP_TIME_SECONDS = 4 * 60 * 60
+
 
 def main() -> None:
     while True:
@@ -17,7 +19,7 @@ def main() -> None:
         messages = arch.update_from_remote()
         for msg in messages:
             msg.send()
-        time.sleep(12 * 60 * 60)
+        time.sleep(BOT_SLEEP_TIME_SECONDS)
 
     return None
 
