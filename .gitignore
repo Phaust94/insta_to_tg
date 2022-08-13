@@ -2,3 +2,4 @@ secrets.py
 lib
 .idea
 tst*.py
+.gitsecret/keys/random_seed
